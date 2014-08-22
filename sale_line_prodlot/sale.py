@@ -28,9 +28,8 @@ class sale_order(orm.Model):
 
     def action_wait(self, cr, uid, ids, context=None):
         """
-        In maintenance:
+        In sale order:
             - the prodlot must be fill before confirm sale order
-            - the product must be to produce and having bom
         """
         context = context or {}
 
@@ -39,6 +38,7 @@ class sale_order(orm.Model):
                     if not l.prodlot_id:
                         raise osv.except_osv(_('Production Lot missing!'), _('Please fill production lot for product : %s') % l.product_id.name)
         return super(sale_order, self).action_wait(cr, uid, ids, context=context)
+        
 
     def _prepare_order_line_move(self, cr, uid, order, line, picking_id, date_planned, context=None):
         """
