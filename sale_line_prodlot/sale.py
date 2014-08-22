@@ -20,8 +20,6 @@
 ##############################################################################
 
 from openerp.osv import orm, osv, fields
-from openerp.tools.translate import _
-
 
 class sale_order(orm.Model):
     _inherit = 'sale.order'
