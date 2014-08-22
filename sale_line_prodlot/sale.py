@@ -34,7 +34,10 @@ class sale_order(orm.Model):
         for o in self.browse(cr, uid, ids):
                 for l in o.order_line:
                     if not l.prodlot_id:
-                        raise osv.except_osv(_('Production Lot missing!'), _('Please fill production lot for product : %s') % l.product_id.name)
+                        raise orm.except_orm(
+                            _('Lote do Produto não informado !'), 
+                            _('Por favor, informar o lote para o produto : %s') % (l.product_id.name))
+                            
         return super(sale_order, self).action_wait(cr, uid, ids, context=context)
         
 
