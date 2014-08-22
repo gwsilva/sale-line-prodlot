@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+
+		<record id="sale_form_add_prodlot" model="ir.ui.view">
+			<field name="name">sale.order.form</field>
+			<field name="model">sale.order</field>
+			<field name="inherit_id" ref="sale.view_order_form" />
+			<field name="priority">36</field>
+			<field name="arch" type="xml">
+				<xpath expr="//page[@string='Order Lines']/field[@name='order_line']/form[@string='Sales Order Lines']/group/group/field[@name='product_uom_qty']" position="after">
+						<field name="prodlot_id" widget="selection" groups="base.group_sale_salesman" required="1" />
+				</xpath>	
+			</field>
+		</record>
+	</data>
+</openerp>
+
