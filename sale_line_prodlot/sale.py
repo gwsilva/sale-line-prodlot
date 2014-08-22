@@ -57,38 +57,38 @@ class sale_order_line(osv.osv):
     _columns = {
         'prodlot_id': fields.many2one('stock.production.lot', 'Production Lot', domain="[('product_id','=',product_id)]", readonly=True, states={'draft': [('readonly', False)]}, help='Production lot is used to put a serial number on the production'),
      }
-"""
-def _get_prodlot_context(self, cr, uid, context=None):
-        context = context or {}
-        shop_id = context.get('shop', False)
-        shop_obj = self.pool.get('sale.shop')
-        shop = shop_obj.browse(cr, uid, shop_id)
-        prodlot_context = {}
-        if(not shop_id):
-            return {}
-        if shop:
-            location_id = shop.warehouse_id and shop.warehouse_id.lot_stock_id.id
-            if location_id:
-                prodlot_context['location_id'] = location_id
-        return prodlot_context
-
-
-def product_id_change(self, cr, uid, ids, pricelist, product, qty=0,
-                          uom=False, qty_uos=0, uos=False, name='', partner_id=False, 
-                          lang=False, update_tax=True, date_order=False, packaging=False, fiscal_position=False, 
-                          flag=False, context=None, **kwargs):
-        context = context or {}
-
-
-        warning_msgs = ''
-            
-        product_obj = product_obj.browse(cr, uid, product, context=context_partner)
-        stock_prod_lot = self.pool.get('stock.production.lot')
-        
-        for prodlot_id in stock_prod_lot.search(cr, uid,[('product_id','=',product_obj.id)]):
-            prodlot_context = self._get_prodlot_context(cr, uid, context=context)
-            prodlot = stock_prod_lot.browse(cr, uid, prodlot_id, context=prodlot_context)
-"""
-
-
+#"""
+#def _get_prodlot_context(self, cr, uid, context=None):
+#        context = context or {}
+#        shop_id = context.get('shop', False)
+#        shop_obj = self.pool.get('sale.shop')
+#        shop = shop_obj.browse(cr, uid, shop_id)
+#        prodlot_context = {}
+#        if(not shop_id):
+#            return {}
+#        if shop:
+#            location_id = shop.warehouse_id and shop.warehouse_id.lot_stock_id.id
+#            if location_id:
+#                prodlot_context['location_id'] = location_id
+#        return prodlot_context
+#
+#
+#def product_id_change(self, cr, uid, ids, pricelist, product, qty=0,
+#                          uom=False, qty_uos=0, uos=False, name='', partner_id=False, 
+#                          lang=False, update_tax=True, date_order=False, packaging=False, fiscal_position=False, 
+#                          flag=False, context=None, **kwargs):
+#        context = context or {}
+#
+#
+#        warning_msgs = ''
+#            
+#        product_obj = product_obj.browse(cr, uid, product, context=context_partner)
+#        stock_prod_lot = self.pool.get('stock.production.lot')
+#        
+#        for prodlot_id in stock_prod_lot.search(cr, uid,[('product_id','=',product_obj.id)]):
+#            prodlot_context = self._get_prodlot_context(cr, uid, context=context)
+#            prodlot = stock_prod_lot.browse(cr, uid, prodlot_id, context=prodlot_context)
+#"""
+#
+#
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
