@@ -29,6 +29,7 @@
     'website': 'http://www.omnes.net.br',
     'version': '0.1',
     'depends': ['sale', 'stock'],
+    'data': ['sale_order_line_extension.xml'],    
     'demo': [],
     'installable': True,
     'auto_install': False,
