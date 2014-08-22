@@ -1,18 +1,15 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    mrp_maintenance module for OpenERP, Manage maintenance in production order
-#    Copyright (C) 2012 SYLEAM Info Services (<http://www.syleam.fr/>)
-#              Sebastien LANGE <sebastien.lange@syleam.fr>
+#    Author: Gideoni Silva (Omnes)
+#    Copyright 2013-2014 Omnes Tecnologia
 #
-#    This file is a part of mrp_maintenance
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
 #
-#    mrp_maintenance is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
-#    (at your option) any later version.
-#
-#    mrp_maintenance is distributed in the hope that it will be useful,
+#    This program is distributed in the hope that it will be useful,
 #    but WITHOUT ANY WARRANTY; without even the implied warranty of
 #    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #    GNU Affero General Public License for more details.
@@ -22,9 +19,18 @@
 #
 ##############################################################################
 
-import sale
-import procurement
-import wizard
-import stock
+{
+    'name': 'Serial Number Sale Order Lines',
+    'summary': 'Sales Orders',
+    'description': 'Serial Number on Sales Orders Lines',
+    'category': 'Sales Management',
+    'license': 'AGPL-3',
+    'author': 'Omnes Tecnolgia',
+    'website': 'http://www.omnes.net.br',
+    'version': '0.1',
+    'depends': ['sale', 'stock'],
+    'demo': [],
+    'installable': True,
+    'auto_install': False,
+}
 
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
